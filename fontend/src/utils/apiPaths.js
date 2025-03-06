@@ -1,4 +1,6 @@
-export const BASE_URL = "http://localhost:8000";
+// export const BASE_URL = "http://localhost:8000";
+export const BASE_URL = "https://anonymouspoll-backend.onrender.com";
+// https://anonymouspoll-backend.onrender.com
 
 // utils/apiPaths.js
 export const API_PATHS = {
