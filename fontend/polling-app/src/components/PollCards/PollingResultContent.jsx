@@ -42,7 +42,7 @@ const OpenEndedPollResponse = ({
     <div className="mb-8 ml-3">
       <div className="flex gap-3">
         {profileImgUrl ? (
-          <div className="w-8 h-8 rounded-full bg-sky-800/40" />
+          <div alt="" className="w-8 h-8 rounded-full bg-sky-800/40" />
         ) : (
           <CharAvatar
             // fullName={userFullName}

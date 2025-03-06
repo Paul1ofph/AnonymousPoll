@@ -11,7 +11,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import CREATE_ICON from "../../assets/images/my-poll-icon.png";
 import EmptyCard from "../../components/cards/EmptyCard";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 4;
 
 const Home = () => {
   useUserAuth();
