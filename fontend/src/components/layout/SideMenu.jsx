@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { SIDE_MENU_DATA } from "../../utils/data";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
-
+import UserProfileInfo from "../cards/UserProfileInfo";
 const SideMenu = ({ activeMenu }) => {
   const { clearUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleClick = (route) => {
@@ -23,7 +24,8 @@ const SideMenu = ({ activeMenu }) => {
   };
 
   return (
-    <div className="w-64 h-[calc(100vh-61px)] bg-slate-50/50 border-r border-slate-100/70 p-5 sticky top-[61px] z-20">
+    <div className="flex flex-col justify-between w-64 h-[calc(100vh-61px)] bg-slate-50/50 border-r  border-slate-100/70 p-5 sticky top-[61px] z-20">
+    <div className="">
       {SIDE_MENU_DATA.map((item, index) => (
         <button
           key={`menu_${index}`}
@@ -35,6 +37,14 @@ const SideMenu = ({ activeMenu }) => {
           <item.icon className="text-xl" /> {item.label}
         </button>
       ))}
+    </div>
+
+    <div className="cursor-pointer">
+            <UserProfileInfo
+              fullname={user && user.fullName}
+              username={user && user.username}
+            />
+    </div>
     </div>
   );
 };
