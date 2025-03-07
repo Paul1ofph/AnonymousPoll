@@ -71,7 +71,7 @@ const Bookmarks = () => {
               options={poll.options}
               voters={poll.voters.length || 0}
               responses={poll.responses || []}
-              creatorProfileImg={poll.creator.profileImageUrl || null}
+              // creatorProfileImg={poll.creator.profileImageUrl || null}
               creatorName={poll.creator.fullName}
               creatorUsername={poll.creator.username}
               userHasVoted={poll.userHasVoted || false}
