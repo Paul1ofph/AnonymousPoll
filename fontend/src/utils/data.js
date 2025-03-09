@@ -5,6 +5,7 @@ import {
   LuBadgeCheck,
   LuBookmark,
   LuLogOut,
+  LuStar
 } from "react-icons/lu";
 
 export const SIDE_MENU_DATA = [
@@ -40,6 +41,12 @@ export const SIDE_MENU_DATA = [
   },
   {
     id: "06",
+    label: "Ratings",
+    icon: LuStar,
+    path: "/ratings",
+  },
+  {
+    id: "07",
     label: "Logout",
     icon: LuLogOut,
     path: "logout",
