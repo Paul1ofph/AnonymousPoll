@@ -8,6 +8,9 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import toast from "react-hot-toast";
 import PollingResultContent from "./PollingResultContent";
+import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from "react-share";
+import { IoIosShareAlt } from "react-icons/io";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 const PollCard = ({
   pollId,
@@ -150,6 +153,7 @@ const PollCard = ({
       console.log("Something went wrong. Please try again.", error);
     }
   };
+  const shareableLink = `${window.location.origin}/poll/${pollId}`;
 
   return (
     !pollDeleted && (
@@ -200,6 +204,20 @@ const PollCard = ({
                 onResponseChange={handleInput}
               />
             )}
+          </div>
+          <div>
+            {/* <p>share this poll</p> */}
+            {/* <input type="text" value={shareableLink} readOnly /> */}
+            {/* <button onClick={() => navigator.clipboard.writeText(shareableLink)}>Copy Link</button> */}
+
+            <div className="flex items-center gap-2">
+            <FacebookShareButton url={shareableLink}>
+                <FaFacebook className="text-2xl text-primary" />
+            </FacebookShareButton>
+            <WhatsappShareButton url={shareableLink} title="Check out this poll!">
+            <FaWhatsapp className="text-2xl text-primary" />
+            </WhatsappShareButton>
+            </div>
           </div>
         </div>
       </div>
