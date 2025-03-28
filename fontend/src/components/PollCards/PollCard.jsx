@@ -8,8 +8,8 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import toast from "react-hot-toast";
 import PollingResultContent from "./PollingResultContent";
-import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from "react-share";
-import { IoIosShareAlt } from "react-icons/io";
+import { FacebookShareButton, EmailShareButton, WhatsappShareButton } from "react-share";
+import { IoMdMail } from "react-icons/io";
 import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 const PollCard = ({
@@ -153,7 +153,8 @@ const PollCard = ({
       console.log("Something went wrong. Please try again.", error);
     }
   };
-  const shareableLink = `${window.location.origin}/poll/${pollId}`;
+  // const shareableLink = `${window.location.origin}/poll/${pollId}`;
+  const shareableLink = `${window.location.origin}`;
 
   return (
     !pollDeleted && (
@@ -212,11 +213,16 @@ const PollCard = ({
 
             <div className="flex items-center gap-2">
             <FacebookShareButton url={shareableLink}>
-                <FaFacebook className="text-2xl text-primary" />
+                <FaFacebook className="text-2xl text-primary" onClick={() => navigator.clipboard.writeText(shareableLink)}/>
             </FacebookShareButton>
+
             <WhatsappShareButton url={shareableLink} title="Check out this poll!">
-            <FaWhatsapp className="text-2xl text-primary" />
+              <FaWhatsapp className="text-2xl text-primary"  onClick={() => navigator.clipboard.writeText(shareableLink)}/>
             </WhatsappShareButton>
+
+            <EmailShareButton url={shareableLink} title="Check out this poll!">
+              <IoMdMail className="text-2xl text-primary" onClick={() => navigator.clipboard.writeText(shareableLink)} />
+            </EmailShareButton>
             </div>
           </div>
         </div>
