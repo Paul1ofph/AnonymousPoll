@@ -39,12 +39,12 @@ export const SIDE_MENU_DATA = [
     icon: LuBookmark,
     path: "/bookmarked-polls",
   },
-  // {
-  //   id: "06",
-  //   label: "Ratings",
-  //   icon: LuStar,
-  //   path: "/ratings",
-  // },
+  {
+    id: "06",
+    label: "Review Page",
+    icon: LuStar,
+    path: "/review-page",
+  },
   {
     id: "07",
     label: "Logout",
