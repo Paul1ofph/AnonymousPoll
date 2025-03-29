@@ -4,14 +4,16 @@ import { API_PATHS } from "../../utils/apiPaths";
 import ReviewForm from "../../components/Review/ReviewForm";
 import ReviewList from "../../components/Review/ReviewList";
 import DashboardLayout from "../../components/layout/DashboardLayout";
+import useUserAuth from "../../hooks/useUserAuth";
 
 const ReviewPages = () => {
+  useUserAuth()
   const [reviews, setReviews] = useState([]); // ✅ Ensure reviews is an array
 
   useEffect(() => {
     axiosInstance.get("/api/v1/reviews")  // Ensure correct API route
       .then(res => {
-        console.log("API response:", res.data); // Debugging log
+        console.log("Response recieved"); // Debugging log
         if (Array.isArray(res.data)) {
           setReviews(res.data);
         } else {
@@ -25,11 +27,11 @@ const ReviewPages = () => {
       });
   }, []);
 
-  return (<DashboardLayout>
+  return (<DashboardLayout activeMenu="Review Page">
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Rate and Review</h1>
+      <h1 className="text-lg font-medium text-black mb-2">Rate and Review</h1>
       <ReviewForm addReview={setReviews} />
-      <ReviewList reviews={reviews} />
+      {/* <ReviewList reviews={reviews} /> */}
     </div>
     </DashboardLayout>
   );

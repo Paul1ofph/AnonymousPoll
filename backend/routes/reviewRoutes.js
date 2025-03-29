@@ -13,12 +13,14 @@ router.post("/", protect, async (req, res) => {
             return res.status(400).json({ error: "You have already submitted a review." });
         }
 
-        const { ui, anonymity, scalability, comments } = req.body;
+        const { ui, anonymity, scalability, security, result, comments } = req.body;
         const review = new Review({
             user: req.user.id,
             ui,
             anonymity,
             scalability,
+            security,
+            result,
             comments,
         });
 

@@ -5,6 +5,8 @@ const reviewSchema = new mongoose.Schema({
     ui: Number,
     anonymity: Number,
     scalability: Number,
+    security: Number,
+    result: Number,
     comments: String,
 }, { timestamps: true });
 
